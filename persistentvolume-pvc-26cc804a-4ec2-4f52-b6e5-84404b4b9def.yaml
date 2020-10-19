@@ -1,0 +1,90 @@
+﻿kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pvc-26cc804a-4ec2-4f52-b6e5-84404b4b9def
+  selfLink: /api/v1/persistentvolumes/pvc-26cc804a-4ec2-4f52-b6e5-84404b4b9def
+  uid: e85da313-60bf-4417-bdda-b60f22cad406
+  resourceVersion: '18623'
+  creationTimestamp: '2020-08-05T18:36:19Z'
+  annotations:
+    pv.kubernetes.io/provisioned-by: nfs-storage-provisioner
+  finalizers:
+    - kubernetes.io/pv-protection
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2020-08-05T18:36:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:phase': {}
+    - manager: nfs-client-provisioner
+      operation: Update
+      apiVersion: v1
+      time: '2020-08-05T18:36:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:pv.kubernetes.io/provisioned-by': {}
+        'f:spec':
+          'f:accessModes': {}
+          'f:capacity':
+            .: {}
+            'f:storage': {}
+          'f:claimRef':
+            .: {}
+            'f:apiVersion': {}
+            'f:kind': {}
+            'f:name': {}
+            'f:namespace': {}
+            'f:resourceVersion': {}
+            'f:uid': {}
+          'f:mountOptions': {}
+          'f:nfs':
+            .: {}
+            'f:path': {}
+            'f:server': {}
+          'f:persistentVolumeReclaimPolicy': {}
+          'f:storageClassName': {}
+          'f:volumeMode': {}
+spec:
+  capacity:
+    storage: 100Gi
+  nfs:
+    server: 192.168.50.254
+    path: >-
+      /exports/openshift-image-registry-image-registry-storage-pvc-26cc804a-4ec2-4f52-b6e5-84404b4b9def
+  accessModes:
+    - ReadWriteMany
+  claimRef:
+    kind: PersistentVolumeClaim
+    namespace: openshift-image-registry
+    name: image-registry-storage
+    uid: 26cc804a-4ec2-4f52-b6e5-84404b4b9def
+    apiVersion: v1
+    resourceVersion: '18272'
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: nfs-storage
+  mountOptions:
+    - rw
+    - relatime
+    - vers=3
+    - rsize=524288
+    - wsize=524288
+    - namlen=255
+    - hard
+    - intr
+    - proto=tcp
+    - timeo=600
+    - retrans=2
+    - sec=sys
+    - mountvers=3
+    - mountport=20048
+    - mountproto=tcp
+    - local_lock=all
+  volumeMode: Filesystem
+status:
+  phase: Bound
