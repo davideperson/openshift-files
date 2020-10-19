@@ -1,0 +1,40 @@
+﻿kind: LimitRange
+apiVersion: v1
+metadata:
+  name: mem-limit-range
+  namespace: openshift-image-registry
+  selfLink: /api/v1/namespaces/openshift-image-registry/limitranges/mem-limit-range
+  uid: 1ce649a9-3e24-48d0-91de-bda95c2f358d
+  resourceVersion: '1173053'
+  creationTimestamp: '2020-10-19T14:21:40Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2020-10-19T14:21:40Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:limits': {}
+spec:
+  limits:
+    - type: Pod
+      max:
+        cpu: '2'
+        memory: 1Gi
+      min:
+        cpu: 200m
+        memory: 1Gi
+    - type: Container
+      max:
+        cpu: '2'
+        memory: 1Gi
+      min:
+        cpu: 100m
+        memory: 4Mi
+      default:
+        cpu: '2'
+        memory: 1Gi
+      defaultRequest:
+        cpu: 200m
+        memory: 100Mi
